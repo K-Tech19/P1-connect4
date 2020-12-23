@@ -4,8 +4,11 @@
     box-sizing: border-box;
 }
 
-body {
-    /* background-color: blue; */
+
+
+.container {
+display: flex;
+
 }
 
 h2{
@@ -40,11 +43,12 @@ background-color: red;
 
 .btn {
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-end;
-    position: absolute;
+    align-items: flex-start;
     height: 50px;
-    width: 20px;
+    width: 10%;
+
 }
 
 
