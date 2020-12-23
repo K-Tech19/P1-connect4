@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    /* background-color: blue; */
+}
+
+h2{
+    display: flex;
+    justify-content: center;
+}
+
+
+.main {
+    display: flex;
+    justify-content: center;
+
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    border: 5px solid black;
+    margin: 0px, 0px, 0px, 50px;
+    width: 25vw;
+    height: 45vh;
+}
+
+td.score {
+    background-color: blueviolet;
+    padding-left: 5%;
+    width: 100px;
+}
+
+
+/* 
+td:nth-child(3) {
+    margin-left: 50%;
+} */
+
+/* flashing lights  */
+/* visible: hidden; w/ setInterval('lights, 10') */
