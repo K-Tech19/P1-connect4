@@ -21,6 +21,7 @@ h2{
     display: flex;
     justify-content: center;
     padding-bottom: 50px;
+
 }
 
 
@@ -31,10 +32,11 @@ h2{
     width: 700px;
     height: 600px;
     justify-content: center;
-    background-color: green;
+    background-color: rgb(3, 82, 150);
     margin: auto;
     margin-left: 10%;
     position: relative;
+    box-shadow: 14px 10px 5px grey;
 
 }
 
@@ -46,27 +48,26 @@ h2{
 }
 
 .cell:hover {
-background-color: red;
+background-color: skyblue;
 }
 
 .btn {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    /* align-items: flex-start; */
     margin-left: 50px;
     height: 100px;
     width: 10%;
-    border-radius: 50%;
+
 }
 .start{
     padding: 10px;
-    border-radius: 50%;
+    border-radius: 12px;
 }
 .reset {
     margin-top: 25px;
     padding: 10px;
-    border-radius: 50%;
+    border-radius: 12px;
 }
 
 
