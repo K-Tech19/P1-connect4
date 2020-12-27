@@ -63,26 +63,23 @@ background-color: skyblue;
 .start{
     padding: 10px;
     border-radius: 12px;
+    box-shadow: inherit;
 }
 .reset {
     margin-top: 25px;
     padding: 10px;
     border-radius: 12px;
+    box-shadow: inherit;
 }
 
 
-/* .scoreboard {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    border: 5px solid black;
-    margin: 0px, 0px, 0px, 50px;
-    width: 25vw;
-    height: 45vh;
-} */
+.redMove{
+background-color: red;
+}
 
-
-
+.blackMove{
+background-color: black;
+}
 
 
 
