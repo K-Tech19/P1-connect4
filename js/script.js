@@ -9,6 +9,7 @@ let game = [
 ]
 let cells = document.querySelectorAll('.cell');
 let moves = 0;
+
 function takeTurn (cell){
     console.log(cell);
     if (moves%2 == 0){
@@ -29,8 +30,9 @@ function takeTurn (cell){
                     game[i][j] = "B"
                     console.log(game);
                 } 
-            }
-        }
+            } 
+        } 
+        checkWin("B");
     } else {
         console.log("red's turn")
         cell.target.classList.add('redMove')
@@ -50,7 +52,8 @@ function takeTurn (cell){
                     console.log(game);
                 } 
             }
-        }
+        } 
+        checkWin("R");
     }
     moves++
 }
@@ -62,31 +65,37 @@ document.addEventListener("DOMContentLoaded", () => {
     
 })
 
+let checkWin = (player)=> {
+    let tally = 0; // horizontal
+    for (let i = 0; i < game.length; i++ ) {
+        console.log("hello cell", game[i]);
+        for (let j = 0; j < game[i].length; j++) {
+            console.log("hello cell in cell", game[i][j]);
+            if (game[i][j] == player) {
+                tally++ 
+                if (tally == 4) {
+                    console.log("🐔 Win!!!");
+                }
+            } else {
+                tally = 0;
+            }
+        }
+        tally = 0;
+    }
+
+}
+
+// vertical 
+
+
+
+
 
 
 
 // create nested for loop to iterate , ion to go one way one 
 // to go another loop
 // // this goes from top to bottom
-// for (let i = 0; i < game.length; i++) {
-//     console.log(game[i]);
-//     // grab id of cell that the player have clicked
-//     let cellId = cell.target.id
-//     // need to know if black or red
-    
-//     // need to find the same ids in your game array
-//     // need to replace that indices with b & r
-//     for (let j = 0; j < game[i].length; j++) {
-//         console.log(game[i][j]);
-//     }
-// }
-
-
-
-
-
-
-
 
 // ***MVP*** (Minimal Viable Product)
 // player 1 goes
