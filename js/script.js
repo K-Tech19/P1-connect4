@@ -70,7 +70,7 @@ let checkWin = (player)=> {
     for (let i = 0; i < game.length; i++ ) {
         console.log("hello cell", game[i]);
         for (let j = 0; j < game[i].length; j++) {
-            console.log("hello cell in cell", game[i][j]);
+            console.log("bye cell", game[i][j]);
             if (game[i][j] == player) {
                 tally++ 
                 if (tally == 4) {
@@ -79,7 +79,7 @@ let checkWin = (player)=> {
             } else {
                 tally = 0;
             }
-        }
+        } 
         tally = 0;
     }
 
