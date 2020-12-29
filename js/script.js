@@ -1,27 +1,28 @@
 
 let cells = document.querySelectorAll('.cell');
 let moves = 0;
+function takeTurn (cell){
+    console.log(cell);
+    if (moves%2 == 0){
+        console.log("black's turn")
+        cell.target.classList.add('blackMove')
+        cell.target.removeEventListener('click', takeTurn)
+    } else {
+        console.log("red's turn")
+        cell.target.classList.add('redMove')
+        cell.target.removeEventListener('click', takeTurn)
+    }
+    moves++
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     cells.forEach(cell => {
-        cell.addEventListener('click', ()=>{
-            console.log(cell);
-            takeTurn(cell);
-        })
+        cell.addEventListener('click', takeTurn)
     }) 
     
 })
 
 
-function takeTurn (cell){
-    if (moves%2 == 0){
-        console.log("black's turn")
-        cell.classList.add('blackMove')
-    } else {
-        console.log("red's turn")
-        cell.classList.add('redMove')
-    }
-    moves++
-}
 
 
 let game = [
