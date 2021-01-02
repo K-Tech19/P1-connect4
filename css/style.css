@@ -5,10 +5,9 @@
     text-align: center;
 }
 
-/* body{
-    display: flex;
-    align-items: center;
-} */
+body{
+    background-color: navy;
+}
 
 .container {
     display: flex;
