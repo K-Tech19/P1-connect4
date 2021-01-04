@@ -42,21 +42,45 @@ let winningArray = [
     ];
 let bSelection = [];
 let rSelection = [];
-// let totals = [0,0]; // the total of whoseTurn
-// let whoseTurn = 0; // track the value of whoseTurn
-// let winCombos = [ 7, 56, 73, 84, 146, 273, 292, 448,]
 let gameOver = false;
+let unlock = {
+    
+    "0": false, "1": false,   "2": false,  "3": false,
+    "4": false,  "5": false,  "6": false,  "7": false,
+    "8": false,  "9": false,  "10": false, "11": false,
+    "12": false, "13": false, "14": false, "15": false,
+    "16": false, "17": false, "18": false, "19": false,
+    "20": false, "21": false, "22": false, "23": false,
+    "24": false, "25": false, "26": false, "27": false,
+    "28": false, "29": false, "30": false, "31": false,
+    "32": false, "33": false, "34": false, "35": false,
+    "36": false, "37": false, "38": false, "39": false,
+    "40": false, "41": false
 
+}; 
+
+
+function playerGo(){
+    messageBox.textContent = 'Black Turn';
+}
 
 function start(){
     timerDown();
-    takeTurn();
+    playerGo();
 } 
-startBtn.addEventListener('click', timerDown);
+startBtn.addEventListener('click', start);
 
-// function reset(){
 
+// if (unlock == true){
+    
 // }
+
+function reset(){
+    gameOver();
+    
+}
+resetBtn.addEventListener('click', reset);
+
 
 function timerMinus(){
     if(timeLeft == 0){
@@ -84,7 +108,7 @@ function timerDown() {
     // }, 5000);
 }
 
-function takeTurn (cell){
+function takeTurn(cell){
     // console.log(cell);
     if (gameOver == false) {
     
@@ -96,8 +120,8 @@ function takeTurn (cell){
             // timerDown();
             // console.log("black's turn")
             messageBox.textContent = 'Reds Turn';
-            cell.target.classList.add('blackMove')
-            cell.target.removeEventListener('click', takeTurn)
+            cell.target.classList.add('blackMove');
+            cell.target.removeEventListener('click', takeTurn);
             bSelection.push(parseInt(cell.target.id));
             console.log(bSelection);
             // track the value of whoseTurn
@@ -189,10 +213,17 @@ let checkWin = (player)=> {
     }   
 
 // make it unable for someone to click on the higher cells
-
+// change message when start game is clicked
+// reset button clears board
+// when timer ends switch turns 
+// 
 
 
 }
+
+
+
+// Binary****
 
 //     let tally = 0; // horizontal
 //     for (let i = 0; i < game.length; i++ ) {
@@ -234,19 +265,6 @@ let checkWin = (player)=> {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // create nested for loop to iterate , ion to go one way one 
 // to go another loop
 // // this goes from top to bottom
@@ -271,4 +289,4 @@ let checkWin = (player)=> {
 
 
 
-// 
+

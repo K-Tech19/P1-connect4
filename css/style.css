@@ -7,14 +7,17 @@
 
 body{
     background-image: url("/img/battleVsBackground.jpg");
-    background-repeat: repeat ;
+    background-repeat: no-repeat;
     background-color: rgb(0, 25, 101);
+    /* background-position: center; */
+    background-size: cover;
+    height: 100%;
+    /* position: relative; */
 
 }
 
 .container {
     display: flex;
-    /* align-items: center; */
     margin: 0 auto;
     width: 100%;
 }
@@ -39,6 +42,7 @@ h2{
     height: 600px;
     justify-content: center;
     /* background-color: rgb(3, 82, 150); */
+    background-color: rgb(92, 29, 200, 0.15);
     margin: auto;
     margin-left: 10%;
     position: relative;
