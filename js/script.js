@@ -13,6 +13,7 @@ let countDown = document.getElementById('timer');
 let resetBtn = document.getElementById('reset');
 let startBtn = document.getElementById('start');
 let timeLeft = 30;
+let minus;
 countDown.textContent = timeLeft; 
 let moves = 0;
 let winningArray = [ 
@@ -62,7 +63,7 @@ let squareUnlock = {
 
 
 function playerGo(){
-    messageBox.textContent = 'Black Turn';
+    messageBox.textContent = 'Blacks Turn';
 }
 
 function start(){
@@ -75,7 +76,11 @@ startBtn.addEventListener('click', start);
 function reset(){
     gameOver == true;
     console.log('RESET');
-    
+    clearInterval(minus);
+    timeLeft = 30;
+    countDown.textContent = timeLeft;
+    messageBox.textContent = 'Click Start Game';
+
 }
 resetBtn.addEventListener('click', reset);
 
@@ -84,11 +89,13 @@ function timerMinus(){
     if(timeLeft == 0){
         moves++
         timeLeft = 30;
+        clearInterval(minus);
         timerDown();
+
         if(moves%2 == 0){
-            messageBox.textContent = 'Red Turn'
+            messageBox.textContent = 'Blacks Turn'
         } else {
-            messageBox.textContent = 'Black Turn'
+            messageBox.textContent = 'Reds Turn'
         }
 
     } else {
@@ -102,7 +109,7 @@ function timerMinus(){
 
 function timerDown() {
     countDown.textContent = timeLeft; 
-    let minus = setInterval(timerMinus, 1000);
+    minus = setInterval(timerMinus, 1000);
     if (timeLeft == 0) {
         clearInterval(minus);
     }
@@ -111,7 +118,7 @@ function timerDown() {
 
 function takeTurn(cell){
     // console.log(cell);
-    if (gameOver == false && squareUnlock[cell.target.id] == true ) {
+    if (gameOver == false && squareUnlock[cell.target.id] == true ){
     let cellInt = parseInt(cell.target.id)
     let targetCell = cellInt - 7
     let cellStr = targetCell.toString();
