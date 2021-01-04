@@ -69,6 +69,7 @@ function playerGo(){
 function start(){
     timerDown();
     playerGo();
+
 } 
 startBtn.addEventListener('click', start);
 
@@ -79,7 +80,7 @@ function reset(){
     clearInterval(minus);
     timeLeft = 30;
     countDown.textContent = timeLeft;
-    messageBox.textContent = 'Click Start Game';
+    messageBox.textContent = 'Click Start';
 
 }
 resetBtn.addEventListener('click', reset);
@@ -91,7 +92,6 @@ function timerMinus(){
         timeLeft = 30;
         clearInterval(minus);
         timerDown();
-
         if(moves%2 == 0){
             messageBox.textContent = 'Blacks Turn'
         } else {
@@ -212,9 +212,7 @@ let checkWin = (player)=> {
             // console.log(winningArray[i][j]);
             if (playerArray.includes(winningArray[i][j])) {
                 tally++
-                // console.log(tally)
                 if (tally == 4) {
-                    console.log("🦇WINNER");
                     messageBox.textContent = "You WIN🥳";
                     gameOver = true;
                     clearInterval(minus);

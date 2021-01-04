@@ -28,8 +28,10 @@ body{
 h2{
     display: flex;
     justify-content: center;
-    padding-bottom: 50px;
+    padding: 25px;
+    color: pink;
     font-family: 'Press Start 2p', cursive;
+
 
 }
 
@@ -38,6 +40,7 @@ h2{
     border: 1px solid black;
     padding: 5px;
     margin: 10px;
+    font-family: 'Press Start 2p', cursive;
 }
 
 .gameboard {
@@ -75,17 +78,23 @@ background-color: skyblue;
     height: 100px;
     width: 10%;
 
+
 }
 #start{
     padding: 10px;
     border-radius: 12px;
     box-shadow: inherit;
+    background: linear-gradient(90deg, #073aeffe, #ff0000);
+    box-shadow: 14px 10px 10px black;
 }
 #reset {
     margin-top: 25px;
     padding: 10px;
     border-radius: 12px;
     box-shadow: inherit;
+    /* background: linear-gradient(45deg, #CCFFFF, #FFCCCC); */
+    background: linear-gradient(90deg, #073aeffe, #ff0000);
+    box-shadow: 14px 10px 10px black;
 }
 
 
