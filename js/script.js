@@ -43,7 +43,7 @@ let winningArray = [
 let bSelection = [];
 let rSelection = [];
 let gameOver = false;
-let unlock = {
+let squareUnlock = {
     
     "0": false, "1": false,   "2": false,  "3": false,
     "4": false,  "5": false,  "6": false,  "7": false,
@@ -53,11 +53,12 @@ let unlock = {
     "20": false, "21": false, "22": false, "23": false,
     "24": false, "25": false, "26": false, "27": false,
     "28": false, "29": false, "30": false, "31": false,
-    "32": false, "33": false, "34": false, "35": false,
-    "36": false, "37": false, "38": false, "39": false,
-    "40": false, "41": false
+    "32": false, "33": false, "34": false, "35": true,
+    "36": true, "37": true, "38": true, "39": true,
+    "40": true, "41": true
 
 }; 
+
 
 
 function playerGo(){
@@ -71,12 +72,9 @@ function start(){
 startBtn.addEventListener('click', start);
 
 
-// if (unlock == true){
-    
-// }
-
 function reset(){
-    gameOver();
+    gameOver == true;
+    console.log('RESET');
     
 }
 resetBtn.addEventListener('click', reset);
@@ -85,7 +83,14 @@ resetBtn.addEventListener('click', reset);
 function timerMinus(){
     if(timeLeft == 0){
         moves++
-        takeTurn();
+        timeLeft = 30;
+        timerDown();
+        if(moves%2 == 0){
+            messageBox.textContent = 'Red Turn'
+        } else {
+            messageBox.textContent = 'Black Turn'
+        }
+
     } else {
         timeLeft = timeLeft - 1; 
         countDown.textContent = timeLeft;
@@ -102,16 +107,16 @@ function timerDown() {
         clearInterval(minus);
     }
 
-    // setTimeout ( ()=> {
-    //     clearInterval(minus); 
-    //     alert('SWITICH😤');
-    // }, 5000);
 }
 
 function takeTurn(cell){
     // console.log(cell);
-    if (gameOver == false) {
-    
+    if (gameOver == false && squareUnlock[cell.target.id] == true ) {
+    let cellInt = parseInt(cell.target.id)
+    let targetCell = cellInt - 7
+    let cellStr = targetCell.toString();
+    squareUnlock[cellStr] = true; 
+    console.log(squareUnlock);
         if (moves%2 == 0 ){
             // clearInterval(minus);
             timeLeft = 30;
