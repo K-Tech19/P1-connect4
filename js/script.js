@@ -8,6 +8,12 @@ let game = [
     ["35","36","37","38","39","40","41"]
 ] // 
 let cells = document.querySelectorAll('.cell');
+let messageBox = document.getElementById('winMessage');
+let countDown = document.getElementById('timer');
+let resetBtn = document.getElementById('reset');
+let startBtn = document.getElementById('start');
+let timeLeft = 30;
+countDown.textContent = timeLeft; 
 let moves = 0;
 let winningArray = [ 
     [0, 1, 2, 3], [41, 40, 39, 38],[7, 8, 9, 10], 
@@ -39,72 +45,120 @@ let rSelection = [];
 // let totals = [0,0]; // the total of whoseTurn
 // let whoseTurn = 0; // track the value of whoseTurn
 // let winCombos = [ 7, 56, 73, 84, 146, 273, 292, 448,]
+let gameOver = false;
+
+
+function start(){
+    timerDown();
+    takeTurn();
+} 
+startBtn.addEventListener('click', timerDown);
+
+// function reset(){
+
+// }
+
+function timerMinus(){
+    if(timeLeft == 0){
+        moves++
+        takeTurn();
+    } else {
+        timeLeft = timeLeft - 1; 
+        countDown.textContent = timeLeft;
+        console.log(timeLeft)
+    }
+}
+
+// reset to 30s
+
+function timerDown() {
+    countDown.textContent = timeLeft; 
+    let minus = setInterval(timerMinus, 1000);
+    if (timeLeft == 0) {
+        clearInterval(minus);
+    }
+
+    // setTimeout ( ()=> {
+    //     clearInterval(minus); 
+    //     alert('SWITICH😤');
+    // }, 5000);
+}
 
 function takeTurn (cell){
-    console.log(cell);
-    if (moves%2 == 0){
-        // console.log("black's turn")
-        cell.target.classList.add('blackMove')
-        cell.target.removeEventListener('click', takeTurn)
-        bSelection.push(parseInt(cell.target.id));
-        console.log(bSelection);
-        // track the value of whoseTurn
-        
-
-        for (let i = 0; i < game.length; i++) {
-            // console.log(game[i]);
-            // grab id of cell that the player have clicked
-            let cellId = cell.target.id
-            // console.log("this is cellId", cellId)
+    // console.log(cell);
+    if (gameOver == false) {
+    
+        if (moves%2 == 0 ){
+            // clearInterval(minus);
+            timeLeft = 30;
+            // if (moves !== 0) {
+            // }
+            // timerDown();
+            // console.log("black's turn")
+            messageBox.textContent = 'Reds Turn';
+            cell.target.classList.add('blackMove')
+            cell.target.removeEventListener('click', takeTurn)
+            bSelection.push(parseInt(cell.target.id));
+            console.log(bSelection);
+            // track the value of whoseTurn
             
-            for (let j = 0; j < game[i].length; j++) {
-                // console.log(game[i][j]);
-                // need to find the same ids in your game array
-                // need to replace that indices with b & r
-                if (game[i][j] == cellId){
-                    game[i][j] = "B"
-                    // console.log(game);
-                    // track the value of whoseTurn
 
+            for (let i = 0; i < game.length; i++) {
+                // console.log(game[i]);
+                // grab id of cell that the player have clicked
+                let cellId = cell.target.id
+                // console.log("this is cellId", cellId)
+                
+                for (let j = 0; j < game[i].length; j++) {
+                    // console.log(game[i][j]);
+                    // need to find the same ids in your game array
+                    // need to replace that indices with b & r
+                    if (game[i][j] == cellId){
+                        game[i][j] = "B"
+                        // console.log(game);
+                        // track the value of whoseTurn
+
+                    } 
                 } 
             } 
-        } 
-        checkWin("B");
-    } else {
-        // console.log("red's turn")
-        cell.target.classList.add('redMove')
-        cell.target.removeEventListener('click', takeTurn)
-        rSelection.push(parseInt(cell.target.id))
-        for (let i = 0; i < game.length; i++) {
-            // console.log(game[i]);
-            // grab id of cell that the player have clicked
-            let cellId = cell.target.id
-            // console.log("this is cellId", cellId)
-            
-            for (let j = 0; j < game[i].length; j++) {
-                // console.log(game[i][j]);
-                // need to find the same ids in your game array
-                // need to replace that indices with b & r
-                if (game[i][j] == cellId){
-                    game[i][j] = "R"
-                    // console.log(game);
-                } 
-            }
-        } 
+            checkWin("B");
+        } else {
+            // clearInterval(minus);
+            timeLeft = 30;
+            // timerDown();
+            // console.log("red's turn")
+            messageBox.textContent = 'Blacks Turn';
+            cell.target.classList.add('redMove')
+            cell.target.removeEventListener('click', takeTurn)
+            rSelection.push(parseInt(cell.target.id))
+            for (let i = 0; i < game.length; i++) {
+                // console.log(game[i]);
+                // grab id of cell that the player have clicked
+                let cellId = cell.target.id
+                // console.log("this is cellId", cellId)
+                
+                for (let j = 0; j < game[i].length; j++) {
+                    // console.log(game[i][j]);
+                    // need to find the same ids in your game array
+                    // need to replace that indices with b & r
+                    if (game[i][j] == cellId){
+                        game[i][j] = "R"
+                        // console.log(game);
+                    } 
+                }
+            } 
         checkWin("R");
+        }
+        moves++
     }
-    moves++
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     cells.forEach(cell => {
-        cell.addEventListener('click', takeTurn)
+            cell.addEventListener('click', takeTurn)
     }) 
     
 })
-
-//if (players * winCombos == winCombos) then "😎Winner!!!"
-
 
 
 let checkWin = (player)=> {
@@ -114,7 +168,7 @@ let checkWin = (player)=> {
         playerArray = bSelection 
     }
     else {
-        playerArray =rSelection
+        playerArray = rSelection
     }
     for (let i = 0; i < winningArray.length; i++ ) {
         // console.log(winningArray[i]);
@@ -123,15 +177,18 @@ let checkWin = (player)=> {
             if (playerArray.includes(winningArray[i][j])) {
                 tally++
                 // console.log(tally)
-                if(tally == 4) {
+                if (tally == 4) {
                     console.log("🦇WINNER");
-                }
+                    messageBox.textContent = "You WIN🥳";
+                    gameOver = true;
+                    clearInterval(minus);
+                } 
             } 
         }
         tally = 0;
     }   
 
-
+// make it unable for someone to click on the higher cells
 
 
 
