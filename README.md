@@ -14,6 +14,35 @@ Connect Four is the classic board game most people in the United States has had 
 
 * Win Message
 * Game board
-* Start Button & Reset Button
+* Start Button 
+* Reset Button
 * Timer at 30 seconds
 * Keep track of space being field
+* Skip turn if player miss turn
+
+## Stretch Goals 
+
+* Color-picker
+* CPU mode (easy, medium, hard)
+* Hard mode (shorter timer)
+* Score board
+* Customize board
+* Toggle button: 
+    * 4 Themes: 
+        * Beach 
+        * Miami nights
+        * Royal Flush 
+        * Winter Wonderland
+* Dark-Mode
+* Music
+
+## If I had more time
+
+* With more time I would:
+  * Implement Music
+  * Incorporate CPU Mode 
+  * Enable sounds whenever someone makes a move.
+  * Hard mode 
+  * Theme selector
+  * Dark mode
+
