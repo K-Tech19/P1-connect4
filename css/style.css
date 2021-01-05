@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+
 
 *{
     margin: 0;
@@ -25,20 +27,20 @@ body{
     width: 100%;
 }
 
-h2{
+.gameTitle {
     display: flex;
     justify-content: center;
     padding: 25px;
-    color: pink;
-    font-family: 'Press Start 2p', cursive;
-
+    color: white;
+    font-family: 'Monoton', cursive;
+    font-size: 50px;
 
 }
 
 #winMessage{
     color: pink;
-    border: 1px solid black;
-    padding: 5px;
+    border: 5px solid black;
+    padding: 15px 10px 15px 4px;
     margin: 10px;
     font-family: 'Press Start 2p', cursive;
 }
@@ -63,7 +65,8 @@ h2{
     background-color: white;
     border: 5px solid black;
     outline: solid black; 
-    border-radius: 50%;
+    border-radius: 40%;
+    /* margin: auto; */
 }
 
 .cell:hover {
@@ -77,26 +80,32 @@ background-color: skyblue;
     margin-left: 50px;
     height: 100px;
     width: 10%;
-
-
 }
+
+#timer {
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+    color: pink;
+    font-family: 'Press Start 2p', cursive;
+    border: 5px solid black;
+}
+
+
 #start{
     padding: 10px;
     border-radius: 12px;
-    box-shadow: inherit;
     background: linear-gradient(90deg, #073aeffe, #ff0000);
+    font-family: 'Press Start 2p', cursive;
     box-shadow: 14px 10px 10px black;
 }
 #reset {
     margin-top: 25px;
     padding: 10px;
     border-radius: 12px;
-    box-shadow: inherit;
-    /* background: linear-gradient(45deg, #CCFFFF, #FFCCCC); */
     background: linear-gradient(90deg, #073aeffe, #ff0000);
     box-shadow: 14px 10px 10px black;
 }
-
 
 .redMove{
 background-color: red;
@@ -105,6 +114,7 @@ background-color: red;
 .blackMove{
 background-color: black;
 }
+
 
 
 

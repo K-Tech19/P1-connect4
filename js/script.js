@@ -76,12 +76,14 @@ startBtn.addEventListener('click', start);
 
 function reset(){
     gameOver == true;
-    console.log('RESET');
     clearInterval(minus);
     timeLeft = 30;
     countDown.textContent = timeLeft;
     messageBox.textContent = 'Click Start';
-
+    // clear board of all cellIds
+    cells.forEach(cell => {
+        cell.className = 'cell';
+    }) 
 }
 resetBtn.addEventListener('click', reset);
 
