@@ -66,6 +66,8 @@ function playerGo(){
     messageBox.textContent = 'Blacks Turn';
 }
 
+// Start Button
+
 function start(){
     timerDown();
     playerGo();
@@ -73,6 +75,7 @@ function start(){
 } 
 startBtn.addEventListener('click', start);
 
+// Reset Button
 
 function reset(){
     gameOver = false;
@@ -108,7 +111,7 @@ function reset(){
 }
 resetBtn.addEventListener('click', reset);
 
-
+//Removes 1 second per
 function timerMinus(){
     if(timeLeft == 0){
         moves++
@@ -139,8 +142,9 @@ function timerDown() {
 
 }
 
+// Take turn
+
 function takeTurn(cell){
-    // console.log(cell);
     if (gameOver == false && squareUnlock[cell.target.id] == true ){
     let cellInt = parseInt(cell.target.id)
     let targetCell = cellInt - 7
@@ -148,33 +152,24 @@ function takeTurn(cell){
     squareUnlock[cellStr] = true; 
     console.log(squareUnlock);
         if (moves%2 == 0 ){
-            // clearInterval(minus);
             timeLeft = 30;
-            // if (moves !== 0) {
-            // }
-            // timerDown();
-            // console.log("black's turn")
             messageBox.textContent = 'Reds Turn';
             cell.target.classList.add('blackMove');
             cell.target.removeEventListener('click', takeTurn);
             bSelection.push(parseInt(cell.target.id));
             console.log(bSelection);
-            // track the value of whoseTurn
             
 
             for (let i = 0; i < game.length; i++) {
-                // console.log(game[i]);
                 // grab id of cell that the player have clicked
                 let cellId = cell.target.id
-                // console.log("this is cellId", cellId)
+                
                 
                 for (let j = 0; j < game[i].length; j++) {
-                    // console.log(game[i][j]);
                     // need to find the same ids in your game array
                     // need to replace that indices with b & r
                     if (game[i][j] == cellId){
                         game[i][j] = "B"
-                        // console.log(game);
                         // track the value of whoseTurn
 
                     } 
@@ -182,27 +177,21 @@ function takeTurn(cell){
             } 
             checkWin("B");
         } else {
-            // clearInterval(minus);
             timeLeft = 30;
-            // timerDown();
-            // console.log("red's turn")
             messageBox.textContent = 'Blacks Turn';
             cell.target.classList.add('redMove')
             cell.target.removeEventListener('click', takeTurn)
             rSelection.push(parseInt(cell.target.id))
             for (let i = 0; i < game.length; i++) {
-                // console.log(game[i]);
                 // grab id of cell that the player have clicked
                 let cellId = cell.target.id
-                // console.log("this is cellId", cellId)
+                
                 
                 for (let j = 0; j < game[i].length; j++) {
-                    // console.log(game[i][j]);
                     // need to find the same ids in your game array
                     // need to replace that indices with b & r
                     if (game[i][j] == cellId){
                         game[i][j] = "R"
-                        // console.log(game);
                     } 
                 }
             } 
@@ -219,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
 })
 
-
+// Check for WIN
 let checkWin = (player)=> {
     let tally = 0;
     let playerArray ; 
@@ -230,9 +219,7 @@ let checkWin = (player)=> {
         playerArray = rSelection
     }
     for (let i = 0; i < winningArray.length; i++ ) {
-        // console.log(winningArray[i]);
         for(let j = 0; j < winningArray[i].length; j++) {
-            // console.log(winningArray[i][j]);
             if (playerArray.includes(winningArray[i][j])) {
                 tally++
                 if (tally == 4) {
