@@ -83,6 +83,7 @@ function reset(){
     // clear board of all cellIds
     cells.forEach(cell => {
         cell.className = 'cell';
+        cell.addEventListener('click', takeTurn)
     }) 
 }
 resetBtn.addEventListener('click', reset);
@@ -193,7 +194,7 @@ function takeTurn(cell){
 
 document.addEventListener("DOMContentLoaded", () => {
     cells.forEach(cell => {
-            cell.addEventListener('click', takeTurn)
+            cell.addEventListener('click', takeTurn);
     }) 
     
 })

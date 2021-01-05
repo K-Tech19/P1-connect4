@@ -38,11 +38,11 @@ body{
 }
 
 #winMessage{
-    color: pink;
+    color: white;
     border: 5px solid black;
     padding: 15px 10px 15px 4px;
     margin: 10px;
-    font-family: 'Press Start 2p', cursive;
+    font-family: 'Monoton', cursive;
 }
 
 .gameboard {
@@ -86,8 +86,8 @@ background-color: skyblue;
     display: flex;
     justify-content: center;
     padding: 25px;
-    color: pink;
-    font-family: 'Press Start 2p', cursive;
+    color: black;
+    font-family: 'Monoton', cursive;
     border: 5px solid black;
 }
 
@@ -104,6 +104,7 @@ background-color: skyblue;
     padding: 10px;
     border-radius: 12px;
     background: linear-gradient(90deg, #073aeffe, #ff0000);
+    font-family: 'Press Start 2p', cursive;
     box-shadow: 14px 10px 10px black;
 }
 
