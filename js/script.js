@@ -75,7 +75,24 @@ startBtn.addEventListener('click', start);
 
 
 function reset(){
-    gameOver == true;
+    gameOver = false;
+    bSelection = [];
+    rSelection = [];
+    squareUnlock = {
+    
+        "0": false, "1": false,   "2": false,  "3": false,
+        "4": false,  "5": false,  "6": false,  "7": false,
+        "8": false,  "9": false,  "10": false, "11": false,
+        "12": false, "13": false, "14": false, "15": false,
+        "16": false, "17": false, "18": false, "19": false,
+        "20": false, "21": false, "22": false, "23": false,
+        "24": false, "25": false, "26": false, "27": false,
+        "28": false, "29": false, "30": false, "31": false,
+        "32": false, "33": false, "34": false, "35": true,
+        "36": true, "37": true, "38": true, "39": true,
+        "40": true, "41": true
+    
+    }; 
     clearInterval(minus);
     timeLeft = 30;
     countDown.textContent = timeLeft;
@@ -83,7 +100,10 @@ function reset(){
     // clear board of all cellIds
     cells.forEach(cell => {
         cell.className = 'cell';
-        cell.addEventListener('click', takeTurn)
+        let oldCell = cell;
+        let newCell = oldCell.cloneNode(true);
+        newCell.addEventListener('click', takeTurn);
+        oldCell.parentNode.replaceChild(newCell, oldCell);
     }) 
 }
 resetBtn.addEventListener('click', reset);
