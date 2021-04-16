@@ -1,4 +1,4 @@
-# P1 Rapid Connect 4
+# Rapid Connect 4
 
 ## Directions
 
